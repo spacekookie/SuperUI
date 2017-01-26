@@ -1,3 +1,5 @@
+package io.lonelyrobot.superui;
+
 import java.util.HashMap;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;

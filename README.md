@@ -14,7 +14,7 @@ SuperUI structures UI scenes into three elements:
  - Container (Organisational structure - wraps around `Table`)
  - Item (Represents an `Actor` with metadata)
  
-By extending these abstract base classes you can write very efficient UI code that is well structured and allows you to deal with window state in a sane manner while also being able to divide your UI logic into different files.
+By extending these abstract base classes you can write very efficient UI code that is well structured and allows you to deal with window state in a sane manner while also being able to divide your UI logic into different files. The initialise function takes a list of variadic parameters that you can use to provide all kinds of window state to the UI handle. This way you need to pass your context ONCE, not for every subsystem.
 
 ```java
 class MyUIHandle extends Handle {
@@ -42,7 +42,7 @@ class MyUIHandle extends Handle {
 
 ```
 
-The next thing you need to implement is a `Container` implementation. You should keep all your UI setup code in the `initialise(Stage parent)` function as that is called once after creation of the Container. UI initialisation follows the same principles as Scene2D.ui however with some modifications. As `Actor` classes are wrapped into `Item`'s for metadata matching and management the creation process is a little more...complex.
+The next thing you need to provide is a `Container` implementation. You should keep all your UI setup code in the `initialise(Stage parent)` function as that is called once after creation of the Container. UI initialisation follows the same principles as Scene2D.ui however with some modifications. As `Actor` classes are wrapped into `Item`'s for metadata matching and management the creation process is a little more...complex.
 
 ```java
 

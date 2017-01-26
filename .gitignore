@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-reated by https://www.gitignore.io/api/java,eclipse,gradle
+u
+# Created by https://www.gitignore.io/api/eclipse,java,gradle
 
 ### Eclipse ###
 
@@ -61,10 +61,6 @@ local.properties
 # BlueJ files
 *.ctxt
 
-=======
-*.class
-
->>>>>>> ed51b13d776389df03796fb37ce1a125f33e8976
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
@@ -75,7 +71,6 @@ local.properties
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-<<<<<<< HEAD
 
 
 ### Gradle ###
@@ -94,7 +89,5 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 
-# End of https://www.gitignore.io/api/java,eclipse,gradle
+# End of https://www.gitignore.io/api/eclipse,java,gradle
 
-=======
->>>>>>> ed51b13d776389df03796fb37ce1a125f33e8976

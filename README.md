@@ -1,12 +1,12 @@
 # SuperUI
 
-A powerful dependency-injection UI toolkit for LibGDX, allowing you to write sleek, structured and modular UI code for your games in Java.
+A powerful UI toolkit for LibGDX, allowing you to write sleek, structured and modular UI code for your games in Java.
 
-## Installation
+### Installation
 
 This repo provides a gradle project that you can either build once and include as a `.jar` in your project or add as a subproject to your build/ test tree.
 
-## Usage
+### Usage
 
 SuperUI structures UI scenes into three elements:
 
@@ -62,8 +62,7 @@ The next thing you need to implement is a `Container` implementation. You should
 
 		/** You can provide trigger callbacks via Lambdas in Java 8+ */
 		store(UI_LOBBY.DW_LOBBY_LAUNCH, UITools.button(" Launch Game "), () -> {
-			GameCore core = (GameCore) super.parent.getContext(GameCore.class);
-			LobbyFunctions.startNewGame("spoiler", "duplicator", core, this);
+			// ...
 		});
 		
 		/** Use utility functions to manage your layout easily */
@@ -76,7 +75,7 @@ The next thing you need to implement is a `Container` implementation. You should
 
 The standard way to add something to table is to use the registered `super.elementWidth` and `super.elementHeight` but there are different functions where you can provide your own sizes. Generally layout structure is very close to Scene2D.ui while wrapping some code around it for easier handling.
 
-## Disclaimer
+### Disclaimer
 
 This library isn't done yet. It was created from the need for a nice way to handle UI and has yet to be tested in larger scale applications. But I think that with this structure it should be possible to make some nice UI code that easily managable. If you have feedback about this project, don't hesitate to contact me.
 

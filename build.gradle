@@ -1,0 +1,19 @@
+apply plugin: "java"
+sourceCompatibility = 1.8
+
+// Set IDE plugins
+apply plugin: "eclipse"
+apply plugin: "idea"
+
+version = '0.1'
+sourceSets.main.java.srcDirs = ["src"]
+
+repositories {
+    jcenter()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+}
+
+dependencies {
+    compile "com.badlogicgames.gdx:gdx:1.9.3"
+}

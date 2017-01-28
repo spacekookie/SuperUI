@@ -39,20 +39,32 @@ public abstract class Container {
 		self.row();
 	}
 
-	public void addToTable(UI_BASE field, float widthMul, float heightMul) {
+	public Actor getActor(UI_BASE field) {
+		Item i = elements.get(field);
+		if (i == null)
+			return null;
+
+		return i.getActor();
+	}
+
+	public void addToTable(UI_BASE field, float widthMul, float heightMul, int cols) {
 		Item i = elements.get(field);
 		if (i == null)
 			return;
 
-		Actor a = i.getActor();
+		final Actor a = i.getActor();
 		if (a == null)
 			return;
 
 		/** Now we're sure we have all the objects */
-		self.add(a).width(elementWidth * widthMul).height(elementHeight * heightMul);
+		self.add(a).width(elementWidth * widthMul).height(elementHeight * heightMul).colspan(cols);
 	}
 
-	public void addToTable(UI_BASE field) {
-		this.addToTable(field, 1f, 1f);
+	public void addFullWidth(UI_BASE field) {
+		this.addToTable(field, 1f, 1f, 2);
+	}
+
+	public void addHalfWidth(UI_BASE field) {
+		this.addToTable(field, 0.5f, 1f, 1);
 	}
 }

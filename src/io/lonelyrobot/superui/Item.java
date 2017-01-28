@@ -1,11 +1,10 @@
 package io.lonelyrobot.superui;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import io.lonelyrobot.superui.Handle.UI_TYPE;
 
 public class Item {
 	private Actor actor;
-	private UI_TYPE type;
+	private Runnable callback;
 
 	public Actor getActor() {
 		return actor;
@@ -15,16 +14,17 @@ public class Item {
 		this.actor = actor;
 	}
 
-	public UI_TYPE getType() {
-		return type;
+	public Item(Actor actor, Runnable callback) {
+		this.actor = actor;
+		this.callback = callback;
 	}
 
-	public void setType(UI_TYPE type) {
-		this.type = type;
+	public void setCallback(Runnable callback) {
+		this.callback = callback;
 	}
 
-	public Item(Actor a, Runnable r, UI_TYPE type) {
-		this.actor = a;
-		this.type = type;
+	public void runCallback() {
+		if (callback != null)
+			callback.run();
 	}
 }

@@ -17,18 +17,38 @@ public abstract class Container {
 	protected Handle parent;
 	protected HashMap<UI_BASE, Item> elements;
 
-	{
+	public Container(Handle parent) {
+		this.parent = parent;
 		elements = new HashMap<>();
 	}
 
 	public abstract void initialise(Stage parent);
+
+	protected void store(UI_BASE field, Actor a) {
+		this.store(field, a, null);
+	}
+
+	protected void store(UI_BASE field, Actor a, Runnable r) {
+		if (a == null)
+			return;
+
+		elements.put(field, new Item(a, r));
+	}
 
 	public void row() {
 		self.row();
 	}
 
 	public void addToTable(UI_BASE field, float widthMul, float heightMul) {
-		Actor a = elements.get(field).getActor();
+		Item i = elements.get(field);
+		if (i == null)
+			return;
+
+		Actor a = i.getActor();
+		if (a == null)
+			return;
+
+		/** Now we're sure we have all the objects */
 		self.add(a).width(elementWidth * widthMul).height(elementHeight * heightMul);
 	}
 

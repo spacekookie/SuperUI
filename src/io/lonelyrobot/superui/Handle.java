@@ -1,54 +1,58 @@
 package io.lonelyrobot.superui;
 
 import java.util.HashMap;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public abstract class Handle {
 
-    public static enum UI_TYPE {
-        TEXT_BUTTON,
-    }
+	public static enum UI_TYPE {
+		TEXT_BUTTON,
+	}
 
-    public static interface UI_BASE {
-    }
+	public static interface UI_BASE {
+	}
 
-    private HashMap<Class<?>, Object> units;
-    protected Stage parent;
+	private HashMap<Class<?>, Object> units;
+	protected Stage parent;
 
-    {
-        units = new HashMap<>();
-    }
+	public Stage getParent() {
+		return this.parent;
+	}
 
-    /**
-     * A Handle can overwrite this function if you don't want to use the
-     * default variadic parameter parsing.
-     * 
-     * @param parent
-     * @param variadic
-     */
-    public void initialise(Stage parent, Object... variadic) {
-        this.parent = parent;
+	{
+		units = new HashMap<>();
+	}
 
-        int length = variadic.length;
-        for (int i = 0; i < length; i++) {
-            Object o = variadic[i];
+	/**
+	 * A Handle can overwrite this function if you don't want to use the default
+	 * variadic parameter parsing.
+	 * 
+	 * @param parent
+	 * @param variadic
+	 */
+	public void initialise(Stage parent, Object... variadic) {
+		this.parent = parent;
 
-            /** Register the class we get */
-            register(o.getClass(), o);
-        }
-    }
+		int length = variadic.length;
+		for (int i = 0; i < length; i++) {
+			Object o = variadic[i];
 
-    public void register(Class<?> clazz, Object unit) {
-        units.put(clazz, unit);
-    }
+			/** Register the class we get */
+			register(o.getClass(), o);
+		}
+	}
 
-    public Object getContext(Class<?> clazz) {
-        return units.get(clazz);
-    }
+	public void register(Class<?> clazz, Object unit) {
+		units.put(clazz, unit);
+	}
 
-    public void unregister(Class<?> clazz) {
-        units.remove(clazz);
-    }
+	public Object getContext(Class<?> clazz) {
+		return units.get(clazz);
+	}
+
+	public void unregister(Class<?> clazz) {
+		units.remove(clazz);
+	}
 
 }
